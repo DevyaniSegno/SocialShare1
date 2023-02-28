@@ -55,7 +55,8 @@ def insta_com(request):
     time.sleep(3)
 
     #posting multiple comments in explore
-    comment_list=['interesting','great','nice','amazing']
+    comment_list=Comment.objects.all()
+    print(comment_list)
     for i in range(1,3):
         driver.find_element('xpath','/html/body/div[2]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/div/div['+str(i)+']/div[2]/div/a/div').click()
         time.sleep(13)
@@ -114,7 +115,8 @@ def insta_msg(request):
     time.sleep(3)
 
     # posting messages to our followings
-    msg_list=["hyy","hello","What's up? ...","What's new?"]
+    msg_list = Message.objects.all()
+    print(msg_list)
     for i in range(1,4):
         driver.get('https://www.instagram.com/direct/inbox/')
         time.sleep(3)
@@ -244,7 +246,8 @@ def fb_com(request):
     time.sleep(3)
 
     #posting comments on multiple post
-    comment_list=['interesting','great','nice','amazing']
+    comment_list=Comment.objects.all()
+    print(comment_list)
     for i in range(1,4):
         a = str(i)
         try:
@@ -299,7 +302,8 @@ def fb_msg(request):
     time.sleep(3)
 
     # posting messages to our friends
-    msg_list=["hyy","hello","What's up? ...","What's new?"]
+    msg_list = Message.objects.all()
+    print(msg_list)
     for i in range(4,7):
         driver.get('https://www.facebook.com/friends/list')
         time.sleep(3)
@@ -454,8 +458,8 @@ def disqus_com(request):
             print(a +' element not found')
             continue
         time.sleep(3)
-        comment = input("Enter your comment: ")
-        print(comment)
+        comment_list = Comment.objects.all()
+        print(comment_list)
         src = driver.find_element('xpath','/html/body/div[2]/div/div[2]/div/div/div/div/div/div/section/div/div/iframe[1]').get_attribute('src')
         print(src)
         time.sleep(3)
@@ -637,7 +641,8 @@ def li_com(request):
     time.sleep(20)
         
     # posting comments in linkedin
-    comment_list=['interesting','great','nice','amazing']
+    comment_list = Comment.objects.all()
+    print(comment_list)
     driver.get('https://www.linkedin.com/groups/')
     for i in range(1,5):
         driver.get('https://www.linkedin.com/groups/')
@@ -856,7 +861,8 @@ def quora_com(request):
     time.sleep(3)
 
     # comment on multiple posts of each space
-    comment_list=['interesting','great','nice','amazing']
+    comment_list = Comment.objects.all()
+    print(comment_list)
     for j in range(1,4):
         driver.get("https://www.quora.com/")
         time.sleep(3)
@@ -1002,7 +1008,8 @@ def reddit_com(request):
     time.sleep(3)
 
     #posting comments in reddit
-    comment_list=['interesting','great','nice','amazing']
+    comment_list = Comment.objects.all()
+    print(comment_list)
     for j in range(1,4):
         driver.get('https://www.reddit.com/best/')
         driver.find_element('xpath','/html/body/div[1]/div/div[2]/div[1]/header/div/div[1]/div[2]/button').click()
@@ -1130,7 +1137,8 @@ def twitter_com(request):
 
     driver.get('https://twitter.com/home')
     time.sleep(3)
-    comment_list=['interesting','great','nice','amazing']
+    comment_list = Comment.objects.all()
+    print(comment_list)
     for i in range(1,4):
         driver.find_element('xpath','/html/body/div[1]/div/div/div[2]/header/div/div/div/div[1]/div[2]/nav/a[6]/div').click()
         time.sleep(3)
