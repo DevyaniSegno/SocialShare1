@@ -18,8 +18,19 @@ def home(request):
     return render(request, 'home.html')
 
 def insta_com(request):
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    PATH = 'chromedriver.exe'
 
+    #Handling of Allow Pop Up In Facebook
+    option = Options()
+    option.add_argument("--headless")
+    option.add_argument("--disable-infobars")
+    option.add_argument("start-maximized")
+    option.add_argument("--disable-extensions")
+
+    # Pass the argument 1 to allow and 2 to block
+    option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
+
+    driver = webdriver.Chrome(chrome_options=option, executable_path=PATH)
     #maximizing the window
     driver.maximize_window()
 
@@ -30,14 +41,14 @@ def insta_com(request):
     time.sleep(3)
 
     #creating id to store email
-    id="000000"
-
+    id = Credential.objects.values('username')
+    id = (id[0]["username"])
     #passing email to email input box
     driver.find_element("xpath",'//*[@id="loginForm"]/div/div[1]/div/label/input').send_keys(id)
 
     #creating password to store password
-    password="0000000"
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password input box
     driver.find_element("xpath",'//*[@id="loginForm"]/div/div[2]/div/label/input').send_keys(password)
 
@@ -82,8 +93,19 @@ def insta_com(request):
     driver.close()
 
 def insta_msg(request):
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    PATH = 'chromedriver.exe'
 
+    #Handling of Allow Pop Up In Facebook
+    option = Options()
+    option.add_argument("--headless")
+    option.add_argument("--disable-infobars")
+    option.add_argument("start-maximized")
+    option.add_argument("--disable-extensions")
+
+    # Pass the argument 1 to allow and 2 to block
+    option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
+
+    driver = webdriver.Chrome(chrome_options=option, executable_path=PATH)
     #maximizing the window
     driver.maximize_window()
 
@@ -94,14 +116,14 @@ def insta_msg(request):
     time.sleep(3)
 
     #creating id to store email
-    id="000000"
-
+    id = Credential.objects.values('username')
+    id = (id[0]["username"])
     #passing email to email input box
     driver.find_element("xpath",'//*[@id="loginForm"]/div/div[1]/div/label/input').send_keys(id)
 
     #creating password to store password
-    password="0000000"
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password input box
     driver.find_element("xpath",'//*[@id="loginForm"]/div/div[2]/div/label/input').send_keys(password)
 
@@ -157,6 +179,7 @@ def fb_post(request):
 
     #Handling of Allow Pop Up In Facebook
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -172,14 +195,14 @@ def fb_post(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('email')
+    id = (id[0]["email"])
     #passing email to email box
     driver.find_element('id','email').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('id','pass').send_keys(password)
 
@@ -212,6 +235,7 @@ def fb_com(request):
 
     #Handling of Allow Pop Up In Facebook
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -227,14 +251,14 @@ def fb_com(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('email')
+    id = (id[0]["email"])
     #passing email to email box
     driver.find_element('id','email').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('id','pass').send_keys(password)
 
@@ -268,6 +292,7 @@ def fb_msg(request):
 
     #Handling of Allow Pop Up In Facebook
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -283,14 +308,14 @@ def fb_msg(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('email')
+    id = (id[0]["email"])
     #passing email to email box
     driver.find_element('id','email').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('id','pass').send_keys(password)
 
@@ -352,6 +377,7 @@ def fb_grp_post(request):
 
     #Handling of Allow Pop Up In Facebook
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -367,14 +393,14 @@ def fb_grp_post(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('email')
+    id = (id[0]["email"])
     #passing email to email box
     driver.find_element('id','email').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('id','pass').send_keys(password)
 
@@ -414,6 +440,7 @@ def fb_grp_post(request):
 def disqus_com(request):
     #Handling of Allow Pop Up In Disqus
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -427,8 +454,10 @@ def disqus_com(request):
 
     #login google account
     driver.get('https://accounts.google.com/')
-    email=''
-    password=''
+    email = Credential.objects.values('email')
+    email = (email[0]["email"])
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input').send_keys(email)
     time.sleep(3)
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[2]/div/div[1]/div/div/button/span').click()
@@ -467,7 +496,7 @@ def disqus_com(request):
         time.sleep(3)
         driver.find_element('xpath','/html/body/div[3]/div/div/div/section/div/div[1]/form/div/div[3]/div[2]/div/div[1]/span').click()
         time.sleep(3)
-        driver.find_element('xpath','/html/body/div[3]/div/div/div/section/div/div[1]/form/div/div[3]/div[2]/div/div[1]/div[1]').send_keys(comment)
+        driver.find_element('xpath','/html/body/div[3]/div/div/div/section/div/div[1]/form/div/div[3]/div[2]/div/div[1]/div[1]').send_keys(random.choice(comment_list))
         time.sleep(3)
         driver.find_element('xpath','/html/body/div[3]/div/div/div/section/div/div[1]/form/div/div[3]/div[2]/div/div[5]/div/div[2]/section/div/button[1]').click()
         time.sleep(3)
@@ -499,9 +528,20 @@ def li_post(request):
         print(
             f"Hello person, there's a {response.status_code} error with your request")
 
-    #creating driver object
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    PATH = 'chromedriver.exe'
 
+    #Handling of Allow Pop Up In Facebook
+    option = Options()
+    option.add_argument("--headless")
+    option.add_argument("--disable-infobars")
+    option.add_argument("start-maximized")
+    option.add_argument("--disable-extensions")
+
+    # Pass the argument 1 to allow and 2 to block
+    option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
+
+    #creating driver object
+    driver = webdriver.Chrome(chrome_options=option, executable_path=PATH)
     #maximizing the window
     driver.maximize_window()
 
@@ -512,14 +552,14 @@ def li_post(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('email')
+    id = (id[0]["email"])
     #passing email to email box
     driver.find_element('xpath','//*[@id="session_key"]').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('xpath','//*[@id="session_password"]').send_keys(password)
 
@@ -564,9 +604,20 @@ def li_grp_post(request):
         print(
             f"Hello person, there's a {response.status_code} error with your request")
 
-    #creating driver object
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    PATH = 'chromedriver.exe'
 
+    #Handling of Allow Pop Up In Facebook
+    option = Options()
+    option.add_argument("--headless")
+    option.add_argument("--disable-infobars")
+    option.add_argument("start-maximized")
+    option.add_argument("--disable-extensions")
+
+    # Pass the argument 1 to allow and 2 to block
+    option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
+
+    #creating driver object
+    driver = webdriver.Chrome(chrome_options=option, executable_path=PATH)
     #maximizing the window
     driver.maximize_window()
 
@@ -577,14 +628,14 @@ def li_grp_post(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('email')
+    id = (id[0]["email"])
     #passing email to email box
     driver.find_element('xpath','//*[@id="session_key"]').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('xpath','//*[@id="session_password"]').send_keys(password)
 
@@ -612,9 +663,20 @@ def li_grp_post(request):
     driver.close()
 
 def li_com(request):
-    #creating driver object
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    PATH = 'chromedriver.exe'
 
+    #Handling of Allow Pop Up In Facebook
+    option = Options()
+    option.add_argument("--headless")
+    option.add_argument("--disable-infobars")
+    option.add_argument("start-maximized")
+    option.add_argument("--disable-extensions")
+
+    # Pass the argument 1 to allow and 2 to block
+    option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
+
+    #creating driver object
+    driver = webdriver.Chrome(chrome_options=option, executable_path=PATH)
     #maximizing the window
     driver.maximize_window()
 
@@ -625,14 +687,14 @@ def li_com(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('email')
+    id = (id[0]["email"])
     #passing email to email box
     driver.find_element('xpath','//*[@id="session_key"]').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('xpath','//*[@id="session_password"]').send_keys(password)
 
@@ -693,6 +755,7 @@ def quora_post(request):
     PATH = 'chromedriver.exe'
     #Handling of Allow Pop Up In Quora
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -705,8 +768,10 @@ def quora_post(request):
 
     #login google account
     driver.get('https://accounts.google.com/')
-    email=''
-    password=''
+    email = Credential.objects.values('email')
+    email = (email[0]["email"])
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input').send_keys(email)
     time.sleep(3)
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[2]/div/div[1]/div/div/button/span').click()
@@ -767,6 +832,7 @@ def quora_post_spaces(request):
     PATH = 'chromedriver.exe'
     #Handling of Allow Pop Up In Quora
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -779,8 +845,10 @@ def quora_post_spaces(request):
 
     #login google account
     driver.get('https://accounts.google.com/')
-    email=''
-    password=''
+    email = Credential.objects.values('email')
+    email = (email[0]["email"])
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input').send_keys(email)
     time.sleep(3)
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[2]/div/div[1]/div/div/button/span').click()
@@ -829,6 +897,7 @@ def quora_com(request):
     PATH = 'chromedriver.exe'
     #Handling of Allow Pop Up In Quora
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -841,8 +910,10 @@ def quora_com(request):
 
     #login google account
     driver.get('https://accounts.google.com/')
-    email=''
-    password=''
+    email = Credential.objects.values('email')
+    email = (email[0]["email"])
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input').send_keys(email)
     time.sleep(3)
     driver.find_element('xpath','/html/body/div[1]/div[1]/div[2]/div/c-wiz/div/div[2]/div/div[2]/div/div[1]/div/div/button/span').click()
@@ -914,6 +985,7 @@ def reddit_post(request):
     PATH = 'chromedriver.exe'
     #Handling of Allow Pop Up In Reddit
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -931,14 +1003,14 @@ def reddit_post(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('username')
+    id = (id[0]["username"])
     #passing email to email box
     driver.find_element('id','loginUsername').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('id','loginPassword').send_keys(password)
 
@@ -973,6 +1045,7 @@ def reddit_com(request):
     PATH = 'chromedriver.exe'
     #Handling of Allow Pop Up In Reddit
     option = Options()
+    option.add_argument("--headless")
     option.add_argument("--disable-infobars")
     option.add_argument("start-maximized")
     option.add_argument("--disable-extensions")
@@ -990,14 +1063,14 @@ def reddit_com(request):
     time.sleep(3)
 
     #creating id to store email id
-    id='000000@0000'
-
+    id = Credential.objects.values('username')
+    id = (id[0]["username"])
     #passing email to email box
     driver.find_element('id','loginUsername').send_keys(id)
 
     #creating password to store the password
-    password='0000000000'
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     #passing password to password box
     driver.find_element('id','loginPassword').send_keys(password)
 
@@ -1057,9 +1130,20 @@ def twitter_post(request):
         print(
             f"Hello person, there's a {response.status_code} error with your request")
 
-    #creating driver object
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    PATH = 'chromedriver.exe'
 
+    #Handling of Allow Pop Up In Facebook
+    option = Options()
+    option.add_argument("--headless")
+    option.add_argument("--disable-infobars")
+    option.add_argument("start-maximized")
+    option.add_argument("--disable-extensions")
+
+    # Pass the argument 1 to allow and 2 to block
+    option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
+
+    #creating driver object
+    driver = webdriver.Chrome(chrome_options=option, executable_path=PATH)
     #maximizing the window
     driver.maximize_window()
 
@@ -1070,8 +1154,8 @@ def twitter_post(request):
     time.sleep(3)
 
     #creating id for storing email,phone,or username
-    id="000000@0000"
-
+    id = Credential.objects.values('username')
+    id = (id[0]["username"])
     #passing id to the id box
     driver.find_element('xpath','//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[5]/label/div/div[2]/div/input').send_keys(id)
 
@@ -1079,8 +1163,8 @@ def twitter_post(request):
     driver.find_element('xpath','//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[6]').click()
 
     #creating password for storing password
-    password="0000000000"
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     time.sleep(3)
     #passing password to password box
     driver.find_element('xpath','//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input').send_keys(password)
@@ -1103,9 +1187,20 @@ def twitter_post(request):
     driver.close()
 
 def twitter_com(request):
-    #creating driver object
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    PATH = 'chromedriver.exe'
 
+    #Handling of Allow Pop Up In Facebook
+    option = Options()
+    option.add_argument("--headless")
+    option.add_argument("--disable-infobars")
+    option.add_argument("start-maximized")
+    option.add_argument("--disable-extensions")
+
+    # Pass the argument 1 to allow and 2 to block
+    option.add_experimental_option("prefs", {"profile.default_content_setting_values.notifications": 2})
+
+    #creating driver object
+    driver = webdriver.Chrome(chrome_options=option, executable_path=PATH)
     #maximizing the window
     driver.maximize_window()
 
@@ -1116,8 +1211,8 @@ def twitter_com(request):
     time.sleep(3)
 
     #creating id for storing email,phone,or username
-    id="000000@0000"
-
+    id = Credential.objects.values('username')
+    id = (id[0]["username"])
     #passing id to the id box
     driver.find_element('xpath','//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[5]/label/div/div[2]/div/input').send_keys(id)
 
@@ -1125,8 +1220,8 @@ def twitter_com(request):
     driver.find_element('xpath','//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[6]').click()
 
     #creating password for storing password
-    password="0000000000"
-
+    password = Credential.objects.values('password')
+    password = (password[0]["password"])
     time.sleep(3)
     #passing password to password box
     driver.find_element('xpath','//*[@id="layers"]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input').send_keys(password)
