@@ -16,7 +16,7 @@
     <div class="container1">
         <h1>SOCIAL SHARE</h1>
     </div>
-    <div class="container2">
+    <!-- <div class="container2">
         <div class="row">
             <div class="col-md-4">
                 <div class="grow">
@@ -101,6 +101,80 @@
             </div>
             <div class="col-md-4"></div>
         </div>
+    </div> -->
+
+
+
+    <div class="container">
+        <div class="grow">
+            <div class="row">
+                <div class="btn-group dropend">
+                    <img src="{% static 'img/insta.png' %}" height="100" width="100" type="button" data-bs-toggle="dropdown"/>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'insta_com' %}">Comment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'insta_msg' %}">Message</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group dropend">
+                    <img src="{% static 'img/fb.png' %}" height="100" width="100" type="button" data-bs-toggle="dropdown"/>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'fb_com' %}">Comment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'fb_msg' %}">Message</a></li>
+                        <li><a class="dropdown-item" href="{% url 'fb_post' %}">Post</a></li>
+                        <li><a class="dropdown-item" href="{% url 'fb_grp_post' %}">Group Post</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group dropend">
+                    <img src="{% static 'img/li.png' %}" height="100" width="100" type="button" data-bs-toggle="dropdown"/>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'li_com' %}">Comment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'li_post' %}">Post</a></li>
+                        <li><a class="dropdown-item" href="{% url 'li_grp_post' %}">Group Post</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group dropend">
+                    <img src="{% static 'img/twitter.png' %}" height="100" width="100" type="button" data-bs-toggle="dropdown"/>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'twitter_com' %}">Comment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'twitter_post' %}">Post</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group dropend">
+                    <img src="{% static 'img/quora.png' %}" height="100" width="100" type="button" data-bs-toggle="dropdown"/>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'quora_com' %}">Comment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'quora_post' %}">Post</a></li>
+                        <li><a class="dropdown-item" href="{% url 'quora_post_spaces' %}">Group Post</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group dropend">
+                    <img src="{% static 'img/reddit.png' %}" height="100" width="100" type="button" data-bs-toggle="dropdown"/>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'reddit_com' %}">Comment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'reddit_post' %}">Post</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group dropend">
+                    <img src="{% static 'img/disqus.png' %}" height="100" width="100" type="button" data-bs-toggle="dropdown"/>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'disqus_com' %}">Comment</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
